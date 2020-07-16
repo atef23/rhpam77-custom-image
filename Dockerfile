@@ -8,3 +8,4 @@ RUN cp bcgithook/scripts/post-commit.sh git-hooks/post-commit
 RUN cp bcgithook/scripts/default.conf .bcgithook/default.conf
 RUN rm -rf bcgithook
 USER 1001
+CMD chown -R jboss:root /home/jboss
