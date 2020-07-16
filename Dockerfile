@@ -1,6 +1,6 @@
 From registry.redhat.io/rhpam-7/rhpam-businesscentral-rhel8:7.7.0
 USER root
-WORKDIR /home/jboss
+WORKDIR /opt/eap/standalone
 RUN mkdir git-hooks
 RUN mkdir .bcgithook
 RUN git clone https://github.com/atef23/bcgithook
