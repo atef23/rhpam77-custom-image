@@ -7,5 +7,5 @@ RUN git clone https://github.com/atef23/bcgithook
 RUN cp bcgithook/scripts/post-commit.sh git-hooks/post-commit
 RUN cp bcgithook/scripts/default.conf .bcgithook/default.conf
 RUN rm -rf bcgithook
-RUN chown -R jboss:0 /home/jboss
-USER 1001
+RUN chown -R jboss:root /home/jboss
+USER 185
