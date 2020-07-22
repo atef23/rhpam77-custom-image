@@ -12,6 +12,7 @@ RUN chown -R jboss:root /home/jboss
 
 COPY logging.properties /opt/eap/standalone/configuration
 COPY standalone-update-logging.sh .
+RUN chmod +x standalone-update-logging.sh
 RUN ./standalone-update-logging.sh
 
 USER 185
