@@ -17,10 +17,6 @@ xmlstarlet ed --inplace -N logging-namespace="urn:jboss:domain:logging:6.0" \
   /opt/eap/standalone/configuration/standalone-openshift.xml
   
 xmlstarlet ed --inplace -N logging-namespace="urn:jboss:domain:logging:6.0" \
-  -s "/_:server/_:profile/logging-namespace:subsystem/logging-namespace:file-handler[@name='FILE']" -t elem -n file -v "" \
-  /opt/eap/standalone/configuration/standalone-openshift.xml
-  
-xmlstarlet ed --inplace -N logging-namespace="urn:jboss:domain:logging:6.0" \
   -s "/_:server/_:profile/logging-namespace:subsystem/logging-namespace:file-handler[@name='FILE']/" -t elem -n file -v "" \
   /opt/eap/standalone/configuration/standalone-openshift.xml
   
