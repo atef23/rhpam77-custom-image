@@ -13,7 +13,7 @@ COPY logging.properties /opt/eap/standalone/configuration
 COPY standalone-update-logging.sh .
 
 COPY build-xmlstarlet.sh .
-RUN chmod+x build-xmlstarlet.sh
+RUN chmod +x build-xmlstarlet.sh
 RUN ./build-xmlstarlet.sh
 
 RUN chmod +x standalone-update-logging.sh
