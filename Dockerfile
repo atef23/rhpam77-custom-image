@@ -13,12 +13,12 @@ RUN chown -R jboss:root /home/jboss
 COPY logging.properties /opt/eap/standalone/configuration
 COPY standalone-update-logging.sh .
 
-RUN sudo dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-RUN sudo dnf upgrade
-RUN sudo yum install snapd
-RUN sudo systemctl enable --now snapd.socket
-RUN sudo ln -s /var/lib/snapd/snap /snap
-RUN sudo snap install xmlstarlet
+RUN dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+RUN dnf upgrade
+RUN yum install snapd
+RUN systemctl enable --now snapd.socket
+RUN ln -s /var/lib/snapd/snap /snap
+RUN snap install xmlstarlet
 RUN chmod +x standalone-update-logging.sh
 RUN ./standalone-update-logging.sh
 
