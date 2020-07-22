@@ -11,10 +11,26 @@ xmlstarlet ed --inplace -N logging-namespace="urn:jboss:domain:logging:6.0" \
 xmlstarlet ed --inplace -N logging-namespace="urn:jboss:domain:logging:6.0" \
   -s "/_:server/_:profile/logging-namespace:subsystem/logging-namespace:file-handler[@name='FILE']" -t elem -n formatter -v "" \
   /opt/eap/standalone/configuration/standalone-openshift.xml
-
+  
 xmlstarlet ed --inplace -N logging-namespace="urn:jboss:domain:logging:6.0" \
-  -s "/_:server/_:profile/logging-namespace:subsystem/logging-namespace:file-handler[@name='FILE']/logging-namespace:formatter" -t elem -n named-formatter -v "" \
+  -s "/_:server/_:profile/logging-namespace:subsystem/logging-namespace:file-handler[@name='FILE']" -t elem -n file -v "" \
   /opt/eap/standalone/configuration/standalone-openshift.xml
+  
+xmlstarlet ed --inplace -N logging-namespace="urn:jboss:domain:logging:6.0" \
+  -s "/_:server/_:profile/logging-namespace:subsystem/logging-namespace:file-handler[@name='FILE']" -t elem -n file -v "" \
+  /opt/eap/standalone/configuration/standalone-openshift.xml
+  
+xmlstarlet ed --inplace -N logging-namespace="urn:jboss:domain:logging:6.0" \
+  -s "/_:server/_:profile/logging-namespace:subsystem/logging-namespace:file-handler[@name='FILE']/" -t elem -n file -v "" \
+  /opt/eap/standalone/configuration/standalone-openshift.xml
+  
+xmlstarlet ed --inplace -N logging-namespace="urn:jboss:domain:logging:6.0" \
+  -i "/_:server/_:profile/logging-namespace:subsystem/logging-namespace:file-handler[@name='FILE']/logging-namespace:file" -t 'attr' -n relative-to -v "jboss.server.log.dir" \
+  /opt/eap/standalone/configuration/standalone-openshift.xml
+  
+xmlstarlet ed --inplace -N logging-namespace="urn:jboss:domain:logging:6.0" \
+  -i "/_:server/_:profile/logging-namespace:subsystem/logging-namespace:file-handler[@name='FILE']/logging-namespace:file" -t 'attr' -n path -v "server.log" \
+  /opt/eap/standalone/configuration/standalone-openshift.xml 
 
 xmlstarlet ed --inplace -N ln="urn:jboss:domain:logging:6.0" \
   -i "/_:server/_:profile/ln:subsystem/ln:file-handler[@name='FILE']/ln:formatter/ln:named-formatter" -t 'attr' -n name -v "COLOR-PATTERN" \
