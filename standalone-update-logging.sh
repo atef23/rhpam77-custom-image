@@ -1,31 +1,31 @@
 #!/bin/bash
 
-xmlstarlet ed --inplace -N logging-namespace="urn:jboss:domain:logging:6.0" \
-  -s /_:server/_:profile/logging-namespace:subsystem -t elem -n file-handler -v "" \
+xmlstarlet ed --inplace -N ln="urn:jboss:domain:logging:6.0" \
+  -s /_:server/_:profile/ln:subsystem -t elem -n file-handler -v "" \
   /opt/eap/standalone/configuration/standalone-openshift.xml
 
-xmlstarlet ed --inplace -N logging-namespace="urn:jboss:domain:logging:6.0" \
-  -i "/_:server/_:profile/logging-namespace:subsystem/logging-namespace:file-handler[not(@name)]" -t 'attr' -n name -v "FILE" \
+xmlstarlet ed --inplace -N ln="urn:jboss:domain:logging:6.0" \
+  -i "/_:server/_:profile/ln:subsystem/ln:file-handler[not(@name)]" -t 'attr' -n name -v "FILE" \
   /opt/eap/standalone/configuration/standalone-openshift.xml
 
-xmlstarlet ed --inplace -N logging-namespace="urn:jboss:domain:logging:6.0" \
-  -s "/_:server/_:profile/logging-namespace:subsystem/logging-namespace:file-handler[@name='FILE']" -t elem -n formatter -v "" \
+xmlstarlet ed --inplace -N ln="urn:jboss:domain:logging:6.0" \
+  -s "/_:server/_:profile/ln:subsystem/ln:file-handler[@name='FILE']" -t elem -n formatter -v "" \
   /opt/eap/standalone/configuration/standalone-openshift.xml
   
-xmlstarlet ed --inplace -N logging-namespace="urn:jboss:domain:logging:6.0" \
-  -s "/_:server/_:profile/logging-namespace:subsystem/logging-namespace:file-handler[@name='FILE']" -t elem -n file -v "" \
+xmlstarlet ed --inplace -N ln="urn:jboss:domain:logging:6.0" \
+  -s "/_:server/_:profile/ln:subsystem/ln:file-handler[@name='FILE']" -t elem -n file -v "" \
   /opt/eap/standalone/configuration/standalone-openshift.xml
   
-xmlstarlet ed --inplace -N logging-namespace="urn:jboss:domain:logging:6.0" \
-  -s "/_:server/_:profile/logging-namespace:subsystem/logging-namespace:file-handler[@name='FILE']/" -t elem -n file -v "" \
+xmlstarlet ed --inplace -N ln="urn:jboss:domain:logging:6.0" \
+  -s "/_:server/_:profile/ln:subsystem/ln:file-handler[@name='FILE']/" -t elem -n file -v "" \
   /opt/eap/standalone/configuration/standalone-openshift.xml
   
-xmlstarlet ed --inplace -N logging-namespace="urn:jboss:domain:logging:6.0" \
-  -i "/_:server/_:profile/logging-namespace:subsystem/logging-namespace:file-handler[@name='FILE']/logging-namespace:file" -t 'attr' -n relative-to -v "jboss.server.log.dir" \
+xmlstarlet ed --inplace -N ln="urn:jboss:domain:logging:6.0" \
+  -i "/_:server/_:profile/ln:subsystem/ln:file-handler[@name='FILE']/ln:file" -t 'attr' -n relative-to -v "jboss.server.log.dir" \
   /opt/eap/standalone/configuration/standalone-openshift.xml
   
-xmlstarlet ed --inplace -N logging-namespace="urn:jboss:domain:logging:6.0" \
-  -i "/_:server/_:profile/logging-namespace:subsystem/logging-namespace:file-handler[@name='FILE']/logging-namespace:file" -t 'attr' -n path -v "server.log" \
+xmlstarlet ed --inplace -N ln="urn:jboss:domain:logging:6.0" \
+  -i "/_:server/_:profile/ln:subsystem/ln:file-handler[@name='FILE']/ln:file" -t 'attr' -n path -v "server.log" \
   /opt/eap/standalone/configuration/standalone-openshift.xml 
 
 xmlstarlet ed --inplace -N ln="urn:jboss:domain:logging:6.0" \
