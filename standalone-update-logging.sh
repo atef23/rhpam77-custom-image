@@ -17,10 +17,6 @@ xmlstarlet ed --inplace -N ln="urn:jboss:domain:logging:6.0" \
   /opt/eap/standalone/configuration/standalone-openshift.xml
   
 xmlstarlet ed --inplace -N ln="urn:jboss:domain:logging:6.0" \
-  -s "/_:server/_:profile/ln:subsystem/ln:file-handler[@name='FILE']" -t elem -n file -v "" \
-  /opt/eap/standalone/configuration/standalone-openshift.xml
-  
-xmlstarlet ed --inplace -N ln="urn:jboss:domain:logging:6.0" \
   -i "/_:server/_:profile/ln:subsystem/ln:file-handler[@name='FILE']/ln:file" -t 'attr' -n relative-to -v "jboss.server.log.dir" \
   /opt/eap/standalone/configuration/standalone-openshift.xml
   
