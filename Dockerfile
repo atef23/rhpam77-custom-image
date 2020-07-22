@@ -12,9 +12,9 @@ RUN rm -rf bcgithook
 COPY logging.properties /opt/eap/standalone/configuration
 COPY standalone-update-logging.sh .
 
-RUN dnf install snapd
-RUN ln -s /var/lib/snapd/snap /snap
-RUN snap install xmlstarlet
+COPY build-xmlstarlet.sh .
+RUN chmod+x build-xmlstarlet.sh
+RUN ./build-xmlstarlet.sh
 
 RUN chmod +x standalone-update-logging.sh
 RUN ./standalone-update-logging.sh
