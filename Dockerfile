@@ -12,9 +12,7 @@ RUN rm -rf bcgithook
 COPY logging.properties /opt/eap/standalone/configuration
 COPY standalone-update-logging.sh .
 
-COPY build-xmlstarlet.sh .
-RUN chmod +x build-xmlstarlet.sh
-RUN ./build-xmlstarlet.sh
+RUN dnf install xmlstarlet
 
 RUN chmod +x standalone-update-logging.sh
 RUN ./standalone-update-logging.sh
