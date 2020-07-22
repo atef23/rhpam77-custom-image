@@ -1,7 +1,7 @@
 #!/bin/bash
 
 xmlstarlet ed --inplace -N ln="urn:jboss:domain:logging:6.0" \
-  -s /_:server/_:profile/ln:subsystem -t elem -n file-handler -v "" \
+  -s "/_:server/_:profile/ln:subsystem" -t elem -n file-handler -v "" \
   /opt/eap/standalone/configuration/standalone-openshift.xml
 
 xmlstarlet ed --inplace -N ln="urn:jboss:domain:logging:6.0" \
@@ -17,7 +17,7 @@ xmlstarlet ed --inplace -N ln="urn:jboss:domain:logging:6.0" \
   /opt/eap/standalone/configuration/standalone-openshift.xml
   
 xmlstarlet ed --inplace -N ln="urn:jboss:domain:logging:6.0" \
-  -s "/_:server/_:profile/ln:subsystem/ln:file-handler[@name='FILE']/" -t elem -n file -v "" \
+  -s "/_:server/_:profile/ln:subsystem/ln:file-handler[@name='FILE']" -t elem -n file -v "" \
   /opt/eap/standalone/configuration/standalone-openshift.xml
   
 xmlstarlet ed --inplace -N ln="urn:jboss:domain:logging:6.0" \
