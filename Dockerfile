@@ -1,4 +1,4 @@
-From registry.redhat.io/rhpam-7/rhpam-businesscentral-rhel8:7.7.0
+FROM registry.redhat.io/rhpam-7/rhpam-businesscentral-rhel8:7.7.0
 USER root
 WORKDIR /home/jboss
 
